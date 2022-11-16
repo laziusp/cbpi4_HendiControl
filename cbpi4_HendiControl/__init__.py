@@ -203,11 +203,14 @@ class HendiControl(CBPiActor):
         self.power = min(int(power), int(self.Pmax))
         if(self.power == 0):
             GPIO.output(int(self.onoff_pin), 0)
+            logging.info("TEST-SET_POWER OFF")
             if self.pwm:
                 self.pwm.ChangeDutyCycle(0)
+                logging.info("TEST-SET_POWER PWM")
         if self.pwm:
             try:
                 GPIO.output(int(self.onoff_pin), 1)
+                logging.info("TEST-SET_POWER ON")
             except:
                 pass
             self.pwm.ChangeDutyCycle(self.power)
