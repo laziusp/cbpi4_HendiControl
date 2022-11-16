@@ -10,6 +10,6 @@ setup(name='cbpi4_HendiControl2',
       package_data={
         # If any package contains *.txt or *.rst files, include them:
       '': ['*.txt', '*.rst', '*.yaml'],
-      'cbpi4_HendiControl2': ['*','*.txt', '*.rst', '*.yaml']},
-      packages=['cbpi4_HendiControl2'],
+      'cbpi4_HendiControl': ['*','*.txt', '*.rst', '*.yaml']},
+      packages=['cbpi4_HendiControl'],
      )
