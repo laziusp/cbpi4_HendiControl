@@ -118,6 +118,7 @@ class PIDHendi(CBPiKettleLogic):
                 sensor_value = float(self.get_sensor_value(self.kettle.sensor).get("value",999))
                 target_temp = int(self.get_kettle_target_temp(self.id))
                 heat_percent = pid.calc(sensor_value, target_temp)
+                logging.info("before PIDHendi calling heater_on(power={})".format(heat_percent))
                 if heat_percent == 0:
                     await self.actor_set_power(self.heater, 0)
                     await self.actor_off(self.heater)
