@@ -6,6 +6,6 @@ ported from: https://github.com/AHm74/hendictrl
 
 ### Installation
 
-sudo pip3 install https://github.com/laziusp/cbpi4_HendiControl/archive/master.zip
+sudo pip3 install https://github.com/laziusp/cbpi4_HendiControl2/archive/master.zip
 
 ### Changelog
