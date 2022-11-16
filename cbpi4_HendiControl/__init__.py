@@ -110,7 +110,8 @@ class PIDHendi(CBPiKettleLogic):
             self.heater_actor = self.cbpi.actor.find_by_id(self.heater)
                        
             await self.actor_on(self.heater, maxout)
-
+            logging.info("PIDHendi on 1")
+            
             pid = PID(sampleTime, p, i, d, maxout)
 
             while self.running == True:
