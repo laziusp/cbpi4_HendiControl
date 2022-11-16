@@ -166,7 +166,8 @@ class HendiControl(CBPiActor):
         if self.power > 100:
             self.power = 100           
         await self.set_power(self.power)   
-
+        logging.info("TEST-SETPOWER")
+        
     def on_start(self):
         self.state = False
         self.power = 0
@@ -181,6 +182,7 @@ class HendiControl(CBPiActor):
         GPIO.setup(int(self.onoff_pin), GPIO.OUT)
         GPIO.output(int(self.onoff_pin), 0)
         self.power =  int(self.Pmax)
+        logging.info("TEST-ONSTART")
 
     async def on(self, power=None):
         if self.pwm is None:
@@ -195,6 +197,7 @@ class HendiControl(CBPiActor):
             logging.info("ON, Set power {}".format(self.power))
             self.state = True
             #await self.cbpi.actor.actor_update(self.id,self.power)
+        logging.info("TEST-ON")
 
     async def set_power(self, power):
         self.power = min(int(power), int(self.Pmax))
@@ -210,6 +213,7 @@ class HendiControl(CBPiActor):
             self.pwm.ChangeDutyCycle(self.power)
         await self.cbpi.actor.actor_update(self.id,self.power)
         logging.info("Set power {}".format(self.power))
+        logging.info("TEST-SET_POWER")
         pass
 
 
@@ -224,11 +228,14 @@ class HendiControl(CBPiActor):
         GPIO.output(int(self.onoff_pin), 0)
         self.state = False
         logging.info("Hendi off")
+        logging.info("TEST-OFF")
  
     def get_state(self):
         return self.state
+        logging.info("TEST-GET_STATE")
    
     async def run(self):
+        logging.info("TEST-RUN")
         while self.running == True:
             await asyncio.sleep(1)
         pass
